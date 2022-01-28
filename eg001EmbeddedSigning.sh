@@ -37,6 +37,24 @@ echo "Sending the envelope request to DocuSign..."
 printf \
 '{
     "emailSubject": "Please sign this document set",
+    "eventNotification": {
+        "version": "restv2.1",
+        "url": "https://webhook.site/cf0e7095-dbc8-4766-83ee-7325dbae4286",
+        "loggingEnabled": true,
+        "requireAcknowledgement": true,
+        "envelopeEvents": [{
+            "envelopeEventStatusCode": "Completed",
+            "includeDocuments": false
+        }],
+        "recipientEvents": [{
+            "recipientEventStatusCode": "Delivered",
+            "includeDocuments": false
+        },
+        {
+            "recipientEventStatusCode": "Sent",
+            "includeDocuments": false
+        }]
+    },
     "documents": [
         {
             "documentBase64": "' > $request_data
