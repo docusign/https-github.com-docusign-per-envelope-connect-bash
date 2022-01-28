@@ -56,8 +56,7 @@ printf \
         "eventData": {
             "version": "restv2.1",
             "format":  "json",
-            "includeData": ["custom_fields", "extensions", "folders",
-                "recipients", "powerform", "tabs", "payment_tabs"]
+            "includeData": ["folders", "recipients"]
         }
     },
     "documents": [
