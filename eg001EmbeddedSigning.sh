@@ -38,7 +38,6 @@ printf \
 '{
     "emailSubject": "Please sign this document set",
     "eventNotification": {
-        "version": "restv2.1",
         "url": "https://webhook.site/cf0e7095-dbc8-4766-83ee-7325dbae4286",
         "loggingEnabled": true,
         "requireAcknowledgement": true,
@@ -53,7 +52,13 @@ printf \
         {
             "recipientEventStatusCode": "Sent",
             "includeDocuments": false
-        }]
+        }],
+        "eventData": {
+            "version": "restv2.1",
+            "format":  "json",
+            "includeData": ["custom_fields", "extensions", "folders",
+                "recipients", "powerform", "tabs", "payment_tabs"]
+        }
     },
     "documents": [
         {
