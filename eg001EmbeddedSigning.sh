@@ -26,6 +26,8 @@ base_path="https://demo.docusign.net/restapi"
 request_data=$(mktemp /tmp/request-eg-001.XXXXXX)
 response=$(mktemp /tmp/response-eg-001.XXXXXX)
 doc1_base64=$(mktemp /tmp/eg-001-doc1.XXXXXX)
+
+# Replace this value with the URL for your listener
 listener_url="https://webhook.site/cf0e7095-XXXX-XXXX-XXXX-7325dbae4286"
 
 # Fetch doc and encode
