@@ -26,6 +26,7 @@ base_path="https://demo.docusign.net/restapi"
 request_data=$(mktemp /tmp/request-eg-001.XXXXXX)
 response=$(mktemp /tmp/response-eg-001.XXXXXX)
 doc1_base64=$(mktemp /tmp/eg-001-doc1.XXXXXX)
+listener_url="https://webhook.site/cf0e7095-XXXX-XXXX-XXXX-7325dbae4286"
 
 # Fetch doc and encode
 cat demo_documents/World_Wide_Corp_lorem.pdf | base64 > $doc1_base64
@@ -38,7 +39,7 @@ printf \
 '{
     "emailSubject": "Please sign this document set",
     "eventNotification": {
-        "url": "https://webhook.site/cf0e7095-dbc8-4766-83ee-7325dbae4286",
+        "url": "'"${listener_url}"'",
         "loggingEnabled": true,
         "requireAcknowledgement": true,
         "envelopeEvents": [{

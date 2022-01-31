@@ -100,11 +100,11 @@ function choices() {
     echo ""
     PS3='Authenticate: '
     select METHOD in \
-        "eSignature" \
+        "Authenticate" \
         "Exit"; do
         case "$METHOD" in
 
-        eSignature)
+        Authenticate)
             api_version="eSignature"
             login $api_version
             startSignature
@@ -122,13 +122,13 @@ function startSignature() {
     echo ""
     PS3='Select the action : '
     select CHOICE in \
-        "Embedded_Signing" \
-        "Pick_An_API"; do
+        "Per_Envelope_Connect" \
+        "Authenticate"; do
         case "$CHOICE" in
-        Pick_An_API)
+        Authenticate)
             choices
             ;;
-        Embedded_Signing)
+        Per_Envelope_Connect)
             bash eg001EmbeddedSigning.sh
             startSignature
             ;;
