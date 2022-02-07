@@ -1,0 +1,22 @@
+    "eventNotification": {
+        "url": "'"${listener_url}"'",
+        "loggingEnabled": true,
+        "requireAcknowledgement": true,
+        "envelopeEvents": [{
+            "envelopeEventStatusCode": "Completed",
+            "includeDocuments": false
+        }],
+        "recipientEvents": [{
+            "recipientEventStatusCode": "Delivered",
+            "includeDocuments": false
+        },
+        {
+            "recipientEventStatusCode": "Sent",
+            "includeDocuments": false
+        }],
+        "eventData": {
+            "version": "restv2.1",
+            "format":  "json",
+            "includeData": ["folders", "recipients"]
+        }
+    },

@@ -26,9 +26,8 @@ base_path="https://demo.docusign.net/restapi"
 request_data=$(mktemp /tmp/request-eg-001.XXXXXX)
 response=$(mktemp /tmp/response-eg-001.XXXXXX)
 doc1_base64=$(mktemp /tmp/eg-001-doc1.XXXXXX)
-
 # Replace this value with the URL for your listener
-listener_url="https://webhook.site/cf0e7095-XXXX-XXXX-XXXX-7325dbae4286"
+listener_url="https://webhook.site/cf0e7095-dbc8-4766-83ee-7325dbae4286"
 
 # Fetch doc and encode
 cat demo_documents/World_Wide_Corp_lorem.pdf | base64 > $doc1_base64
@@ -40,28 +39,6 @@ echo "Sending the envelope request to DocuSign..."
 printf \
 '{
     "emailSubject": "Please sign this document set",
-    "eventNotification": {
-        "url": "'"${listener_url}"'",
-        "loggingEnabled": true,
-        "requireAcknowledgement": true,
-        "envelopeEvents": [{
-            "envelopeEventStatusCode": "Completed",
-            "includeDocuments": false
-        }],
-        "recipientEvents": [{
-            "recipientEventStatusCode": "Delivered",
-            "includeDocuments": false
-        },
-        {
-            "recipientEventStatusCode": "Sent",
-            "includeDocuments": false
-        }],
-        "eventData": {
-            "version": "restv2.1",
-            "format":  "json",
-            "includeData": ["folders", "recipients"]
-        }
-    },
     "documents": [
         {
             "documentBase64": "' > $request_data
