@@ -1,4 +1,4 @@
-# Bash Launcher Code Examples
+# Per-envelope Connect in embedded signing code example
 
 ### GitHub repo: [per-envelope-connect-bash](./README.md)
 
